@@ -9,7 +9,7 @@ public class BallController : MonoBehaviour
     private Rigidbody m_Rigidbody;
     private float m_Speed = 20f;
     private Vector3 m_Direction;
-    private Vector3 normalizedForce;
+    private Vector3 m_NormalizedForce;
     private bool m_İsGoingLeft;
 
 
@@ -21,8 +21,8 @@ public class BallController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        m_Rigidbody.AddForce(normalizedForce - m_Rigidbody.velocity, ForceMode.VelocityChange);
-        Debug.Log(normalizedForce - m_Rigidbody.velocity);
+        m_Rigidbody.AddForce(m_NormalizedForce - m_Rigidbody.velocity, ForceMode.VelocityChange);
+        Debug.Log(m_NormalizedForce - m_Rigidbody.velocity);
     }
 
     private void CreateRandomDirection()
@@ -32,17 +32,17 @@ public class BallController : MonoBehaviour
         if (SetRandomSide(m_İsGoingLeft))
         {
             x = Random.Range(-1f, 0);
-            z = Random.Range(-0.5f, 0.5f);
+            z = Random.Range(-0.3f, 0.3f);
         }
         else
         {
             x = Random.Range(1f, 0);
-            z = Random.Range(-0.5f, 0.5f);
+            z = Random.Range(-0.3f, 0.3f);
         }
         
         m_Direction = new Vector3(x,0,z);
-        normalizedForce = m_Direction.normalized * m_Speed;
-        m_Rigidbody.AddForce(normalizedForce);
+        m_NormalizedForce = m_Direction.normalized * m_Speed;
+        m_Rigidbody.AddForce(m_NormalizedForce);
 
     }
 
@@ -57,12 +57,12 @@ public class BallController : MonoBehaviour
     {
         if (other.CompareTag("LongWall"))
         {
-            normalizedForce.z = -normalizedForce.z;
+            m_NormalizedForce.z = -m_NormalizedForce.z;
         }
 
-        if (other.CompareTag("Paddle") || other.CompareTag("ShortWall"))
+        if (other.CompareTag("LeftPaddle") || other.CompareTag("RightPaddle"))
         {
-            normalizedForce.x = -normalizedForce.x;
+            m_NormalizedForce.x = -m_NormalizedForce.x;
         }
     }
 }
