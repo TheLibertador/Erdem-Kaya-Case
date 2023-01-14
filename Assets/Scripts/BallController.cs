@@ -22,7 +22,6 @@ public class BallController : MonoBehaviour
     private void FixedUpdate()
     {
         m_Rigidbody.AddForce(m_NormalizedForce - m_Rigidbody.velocity, ForceMode.VelocityChange);
-        Debug.Log(m_NormalizedForce - m_Rigidbody.velocity);
     }
 
     private void CreateRandomDirection()
