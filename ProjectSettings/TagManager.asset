@@ -10,6 +10,7 @@ TagManager:
   - ShortWall
   - LeftPaddle
   - RightPaddle
+  - Ball
   layers:
   - Default
   - TransparentFX

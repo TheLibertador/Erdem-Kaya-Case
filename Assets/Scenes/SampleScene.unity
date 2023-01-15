@@ -409,13 +409,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820259185, guid: e3601057006787541a6598641f0aeec8, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8669146815879571517}
     - target: {fileID: 4414667108300287153, guid: e3601057006787541a6598641f0aeec8, type: 3}
       propertyPath: m_Name
       value: PaddleRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 4414667108300287153, guid: e3601057006787541a6598641f0aeec8, type: 3}
-      propertyPath: m_TagString
-      value: RightPaddle
       objectReference: {fileID: 0}
     - target: {fileID: 4414667108300287165, guid: e3601057006787541a6598641f0aeec8, type: 3}
       propertyPath: m_RootOrder
@@ -463,24 +463,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3601057006787541a6598641f0aeec8, type: 3}
---- !u!1 &820259184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4414667108300287153, guid: e3601057006787541a6598641f0aeec8, type: 3}
-  m_PrefabInstance: {fileID: 820259183}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &820259185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820259184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ed7bc0af867b14eae3c7566d0b1829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 8669146815879571517}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,26 +1163,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4414667108859775368, guid: e3601057006787541a6598641f0aeec8, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8669146815879571517}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3601057006787541a6598641f0aeec8, type: 3}
---- !u!1 &4414667108859775367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4414667108300287153, guid: e3601057006787541a6598641f0aeec8, type: 3}
-  m_PrefabInstance: {fileID: 4414667108859775366}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4414667108859775368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4414667108859775367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ed7bc0af867b14eae3c7566d0b1829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 8669146815879571517}
 --- !u!1001 &7092939863868027035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,14 +1233,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2435595532428190792, guid: 102783cb590e28640b09a7518d70cd9a, type: 3}
-      propertyPath: m_Parameters.textureMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5768970072191736250, guid: 102783cb590e28640b09a7518d70cd9a, type: 3}
-      propertyPath: m_Parameters.textureMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8669146816969106779, guid: 102783cb590e28640b09a7518d70cd9a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1321,8 +1281,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8669146815879571525, guid: 102783cb590e28640b09a7518d70cd9a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 102783cb590e28640b09a7518d70cd9a, type: 3}
 --- !u!54 &8669146815879571517 stripped
 Rigidbody:

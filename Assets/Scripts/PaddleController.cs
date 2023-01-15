@@ -12,7 +12,8 @@ public class PaddleController : MonoBehaviour
 
 
     private void Start()
-    { 
+    {
+        ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>();
         m_RigidBody = GetComponent<Rigidbody>();
     }
 
