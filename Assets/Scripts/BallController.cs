@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class BallController : MonoBehaviour
 {
     private Rigidbody m_Rigidbody;
-    private float m_Speed = 20f;
+    private float m_Speed = 30f;
     private Vector3 m_Direction;
     private Vector3 m_NormalizedForce;
     private bool m_İsGoingLeft;

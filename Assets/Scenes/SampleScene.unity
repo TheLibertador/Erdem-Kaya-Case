@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  level: 1
 --- !u!4 &1209526185
 Transform:
   m_ObjectHideFlags: 0

@@ -12,53 +12,53 @@ public class PaddleController : MonoBehaviour
 
 
     private void Start()
-    {
+    { 
         m_RigidBody = GetComponent<Rigidbody>();
     }
 
     private void Update()
-        {
-            if (transform.CompareTag("RightPaddle"))
-            {
-                if (this.ball.velocity.x > 0f)
-                {
-                    if (this.ball.position.z > transform.position.z) {
-                        m_RigidBody.AddForce(Vector3.forward * speed);
-                    } else if (ball.position.z < transform.position.z) {
-                        m_RigidBody.AddForce(Vector3.back * speed);
-                    }
-                }
-                
-                else
-                {
-                    if (transform.position.z > 0f) {
-                        m_RigidBody.AddForce(Vector3.back * speed);
-                    } else if (transform.position.z < 0f) {
-                        m_RigidBody.AddForce(Vector3.forward * speed);
-                    }
-                }
-            }
+    {
+        LeftPaddleMovement();
+        RightPaddleMovement();
+    }
 
-            else if (transform.CompareTag("LeftPaddle"))
+    private void LeftPaddleMovement()
+    {
+        if (transform.CompareTag("LeftPaddle"))
+        {
+            if (this.ball.velocity.x < 0f)
             {
-                if (this.ball.velocity.x < 0f)
-                {
-                    if (this.ball.position.z > transform.position.z) {
-                        m_RigidBody.AddForce(Vector3.forward * speed);
-                    } else if (ball.position.z < transform.position.z) {
-                        m_RigidBody.AddForce(Vector3.back * speed);
-                    }
+                if (this.ball.position.z > transform.position.z) {
+                    m_RigidBody.velocity = Vector3.forward * speed;
+                } else if (ball.position.z < transform.position.z) {
+                    m_RigidBody.velocity = Vector3.back * speed;
                 }
-                
                 else
                 {
-                    if (transform.position.z > 0f) {
-                        m_RigidBody.AddForce(Vector3.back * speed);
-                    } else if (transform.position.z < 0f) {
-                        m_RigidBody.AddForce(Vector3.forward * speed);
-                    }
+                    m_RigidBody.velocity = Vector3.zero;
                 }
+                
             }
-           
         }
+    }
+
+    private void RightPaddleMovement()
+    {
+        if (transform.CompareTag("RightPaddle"))
+        {
+            if (this.ball.velocity.x > 0f)
+            {
+                if (this.ball.position.z > transform.position.z) {
+                    m_RigidBody.velocity = Vector3.forward * speed;
+                } else if (ball.position.z < transform.position.z) {
+                    m_RigidBody.velocity = Vector3.back * speed;
+                }
+                else
+                {
+                    m_RigidBody.velocity = Vector3.zero;
+                }
+                
+            }
+        }
+    }
 }
