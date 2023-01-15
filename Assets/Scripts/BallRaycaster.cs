@@ -15,6 +15,8 @@ public class BallRaycaster : MonoBehaviour
     {
         forwardLine = transform.Find("ForwardLine").GetComponent<LineRenderer>();
         backwardLine = transform.Find("BackwardLine").GetComponent<LineRenderer>();
+        
+        Debug.Log(backwardLine.name);
     }
 
     private void Update()
