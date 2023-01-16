@@ -34,7 +34,7 @@ public class BallRaycaster : MonoBehaviour
                
                if(hit.collider.CompareTag("Player"))
                {
-                   Debug.Log("Hit " + hit.collider.name + " with tag " + "Player");
+                   Debug.Log("Game Over!");
                }
            }
            if(Physics.Raycast(transform.position, -transform.forward, out hitBack, 100f))
@@ -43,7 +43,7 @@ public class BallRaycaster : MonoBehaviour
                backwardLine.SetPosition(1, hitBack.point);
                if(hit.collider.CompareTag("Player"))
                {
-                   Debug.Log("Hit " + hitBack.collider.name + " with tag " + "Player");
+                   Debug.Log("GameOver!");
                }
            }   
        }

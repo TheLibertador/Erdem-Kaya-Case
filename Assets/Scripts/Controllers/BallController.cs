@@ -62,6 +62,7 @@ public class BallController : MonoBehaviour
         if (other.CompareTag("LeftPaddle") || other.CompareTag("RightPaddle"))
         {
             m_NormalizedForce.x = -m_NormalizedForce.x;
+            EventsManager.Instance.BallHitPaddle();
         }
     }
 }

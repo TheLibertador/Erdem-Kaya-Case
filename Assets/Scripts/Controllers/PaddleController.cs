@@ -8,12 +8,12 @@ public class PaddleController : MonoBehaviour
     [SerializeField] private Rigidbody ball;
 
     private Rigidbody m_RigidBody;
-    private float speed = 20f;
+    private float speed = 50f;
 
 
     private void Start()
     {
-        ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>();
+       
         m_RigidBody = GetComponent<Rigidbody>();
     }
 

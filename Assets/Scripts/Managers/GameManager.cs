@@ -21,4 +21,15 @@ public class GameManager : MonoBehaviour
          Instance = this;
       }
    }
+
+   private void Start()
+   {
+      EventsManager.Instance.onBallHitPaddle += IncreaseScore;
+   }
+
+   private void IncreaseScore()
+   {
+      score++;
+      Debug.Log(score);
+   }
 }
