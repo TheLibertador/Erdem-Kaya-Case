@@ -17,6 +17,8 @@ public class BallController : MonoBehaviour
 
     private void Start()
     {
+        EventsManager.Instance.onGameFailed += StopBall;
+        
         currentLevel = GameManager.Instance.level;
         m_Rigidbody = GetComponent<Rigidbody>();
         CreateRandomDirection();
@@ -78,5 +80,10 @@ public class BallController : MonoBehaviour
             currentLevel = GameManager.Instance.level;
             Debug.Log(m_Speed);
         }
+    }
+
+    private void StopBall()
+    {
+        m_Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

@@ -26,24 +26,10 @@ public class BallRaycaster : MonoBehaviour
         private void Update()
        {
            DrawLine();
+           ShootRaycastFront();
+           ShootRaycastBack();
            
-           RaycastHit hit;
-           RaycastHit hitBack;
-           if (Physics.Raycast(transform.position, transform.forward, out hit, 100f))
-           {
-               
-               if(hit.collider.CompareTag("Player"))
-               {
-                   Debug.Log("Game Over!");
-               }
-           }
-           if(Physics.Raycast(transform.position, -transform.forward, out hitBack, 100f))
-           {
-               if(hit.collider.CompareTag("Player"))
-               {
-                   Debug.Log("GameOver!");
-               }
-           }   
+           
        }
 
         private void DrawLine()
@@ -51,7 +37,33 @@ public class BallRaycaster : MonoBehaviour
             backwardLine.SetPosition(0, transform.position);
             backwardLine.SetPosition(1, new Vector3(rightPaddle.position.x, transform.position.y, transform.position.z));
             forwardLine.SetPosition(0, transform.position);
-            forwardLine.SetPosition(1, new Vector3(rightPaddle.position.x,  transform.position.y, transform.position.z));
+            forwardLine.SetPosition(1, new Vector3(leftPaddle.position.x,  transform.position.y, transform.position.z));
             
+        }
+
+        private void ShootRaycastFront()
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 100f))
+            {
+               
+                if(hit.collider.CompareTag("Player"))
+                {
+                    EventsManager.Instance.GameFailed();
+                }
+            }
+        }
+
+        private void ShootRaycastBack()
+        {
+            RaycastHit hitBack;
+           
+            if(Physics.Raycast(transform.position, -transform.forward, out hitBack, 100f))
+            {
+                if(hitBack.collider.CompareTag("Player"))
+                {
+                    EventsManager.Instance.GameFailed();
+                }
+            }   
         }
 }

@@ -15,6 +15,8 @@ public class PaddleController : MonoBehaviour
 
     private void Start()
     {
+        EventsManager.Instance.onGameFailed += StopPaddles;
+        
         m_RigidBody = GetComponent<Rigidbody>();
         currentLevel = GameManager.Instance.level;
     }
@@ -37,11 +39,6 @@ public class PaddleController : MonoBehaviour
                 } else if (ball.position.z < transform.position.z) {
                     m_RigidBody.velocity = Vector3.back * speed;
                 }
-                else
-                {
-                    m_RigidBody.velocity = Vector3.zero;
-                }
-                
             }
         }
     }
@@ -57,11 +54,6 @@ public class PaddleController : MonoBehaviour
                 } else if (ball.position.z < transform.position.z) {
                     m_RigidBody.velocity = Vector3.back * speed;
                 }
-                else
-                {
-                    m_RigidBody.velocity = Vector3.zero;
-                }
-                
             }
         }
     }
@@ -73,5 +65,10 @@ public class PaddleController : MonoBehaviour
             speed = speed + (GameManager.Instance.level * 2);
             currentLevel = GameManager.Instance.level;
         }
+    }
+
+    private void StopPaddles()
+    {
+        m_RigidBody.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

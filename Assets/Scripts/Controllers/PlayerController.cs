@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody m_Rigidbody;
     private float speed = 10f;
-    private float jumpForce = 5f;
+    private float jumpForce = 10f;
     private bool isGrounded;
     
     [SerializeField] private DynamicJoystick joystick;
@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        EventsManager.Instance.onGameFailed += KillPLayer;
+        
         m_Rigidbody = GetComponent<Rigidbody>();
     }
     
@@ -57,5 +59,10 @@ public class PlayerController : MonoBehaviour
         }
 
         return isGrounded;
+    }
+
+    private void KillPLayer()
+    {
+        Destroy(gameObject);
     }
 }

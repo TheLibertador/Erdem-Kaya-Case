@@ -8,6 +8,7 @@ public class EventsManager : MonoBehaviour
     public static EventsManager Instance { get; private set; }
 
     public event Action onBallHitPaddle;
+    public event Action onGameFailed;
     
     private void Awake()
     {
@@ -26,6 +27,14 @@ public class EventsManager : MonoBehaviour
         if (onBallHitPaddle != null)
         {
             onBallHitPaddle();
+        }
+    }
+
+    public void GameFailed()
+    {
+        if (onGameFailed != null)
+        {
+            onGameFailed();
         }
     }
 }

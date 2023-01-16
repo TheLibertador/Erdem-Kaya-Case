@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
    [HideInInspector] public int score = 0;
    public int level = 1;
-
    [SerializeField] private int nextLevelTreshouldScore = 20;
    
    private void Awake()
