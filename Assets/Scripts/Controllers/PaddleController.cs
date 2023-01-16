@@ -10,17 +10,20 @@ public class PaddleController : MonoBehaviour
     private Rigidbody m_RigidBody;
     private float speed = 50f;
 
+    private int currentLevel;
+
 
     private void Start()
     {
-       
         m_RigidBody = GetComponent<Rigidbody>();
+        currentLevel = GameManager.Instance.level;
     }
 
     private void Update()
     {
         LeftPaddleMovement();
         RightPaddleMovement();
+        IncreasePaddleSpeed();
     }
 
     private void LeftPaddleMovement()
@@ -60,6 +63,15 @@ public class PaddleController : MonoBehaviour
                 }
                 
             }
+        }
+    }
+    
+    private void IncreasePaddleSpeed()
+    {
+        if (GameManager.Instance.level > currentLevel)
+        { 
+            speed = speed + (GameManager.Instance.level * 2);
+            currentLevel = GameManager.Instance.level;
         }
     }
 }

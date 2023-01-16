@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
    [HideInInspector] public int score = 0;
    public int level = 1;
+
+   [SerializeField] private int nextLevelTreshouldScore = 20;
    
    private void Awake()
    {
@@ -27,9 +29,22 @@ public class GameManager : MonoBehaviour
       EventsManager.Instance.onBallHitPaddle += IncreaseScore;
    }
 
+   private void Update()
+   {
+      IncreaseLevel();
+   }
+
    private void IncreaseScore()
    {
       score++;
-      Debug.Log(score);
+   }
+
+   private void IncreaseLevel()
+   {
+      if (score == nextLevelTreshouldScore)
+      {
+         level++;
+         nextLevelTreshouldScore += 20;
+      }
    }
 }

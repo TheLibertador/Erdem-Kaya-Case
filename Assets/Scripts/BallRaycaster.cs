@@ -39,8 +39,6 @@ public class BallRaycaster : MonoBehaviour
            }
            if(Physics.Raycast(transform.position, -transform.forward, out hitBack, 100f))
            {
-               backwardLine.SetPosition(0, transform.position);
-               backwardLine.SetPosition(1, hitBack.point);
                if(hit.collider.CompareTag("Player"))
                {
                    Debug.Log("GameOver!");

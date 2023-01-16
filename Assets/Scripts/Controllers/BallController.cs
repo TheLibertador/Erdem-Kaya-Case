@@ -12,9 +12,12 @@ public class BallController : MonoBehaviour
     private Vector3 m_NormalizedForce;
     private bool m_İsGoingLeft;
 
+    private int currentLevel;
+
 
     private void Start()
     {
+        currentLevel = GameManager.Instance.level;
         m_Rigidbody = GetComponent<Rigidbody>();
         CreateRandomDirection();
     }
@@ -22,6 +25,7 @@ public class BallController : MonoBehaviour
     private void FixedUpdate()
     {
         m_Rigidbody.AddForce(m_NormalizedForce - m_Rigidbody.velocity, ForceMode.VelocityChange);
+        IncreaseBallSpeed();
     }
 
     private void CreateRandomDirection()
@@ -63,6 +67,16 @@ public class BallController : MonoBehaviour
         {
             m_NormalizedForce.x = -m_NormalizedForce.x;
             EventsManager.Instance.BallHitPaddle();
+        }
+    }
+
+    private void IncreaseBallSpeed()
+    {
+        if (GameManager.Instance.level > currentLevel)
+        { 
+            m_Speed = m_Speed + (GameManager.Instance.level * 2);
+            currentLevel = GameManager.Instance.level;
+            Debug.Log(m_Speed);
         }
     }
 }
